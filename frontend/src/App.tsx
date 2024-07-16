@@ -1,4 +1,5 @@
 import "./App.css";
+import DeleteComponent from "./components/DeleteComponent";
 import ListTodoComponent from "./components/ListTodoComponent";
 import TodoComponent from "./components/TodoComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -11,6 +12,8 @@ function App() {
           <Route path="/" element={<ListTodoComponent />}></Route>
           <Route path="/todo" element={<ListTodoComponent />}></Route>
           <Route path="/add" element={<TodoComponent />}></Route>
+          <Route path="/update/:id" element={<TodoComponent />}></Route>
+          <Route path="/delete/:id" element={<DeleteComponent />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
