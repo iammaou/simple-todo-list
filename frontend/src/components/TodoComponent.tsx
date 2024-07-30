@@ -90,7 +90,7 @@ const TodoComponent = () => {
           <input
             className="border-solid border-slate-400 border-2 rounded-lg w-full text-slate-400"
             type="text"
-            placeholder="Text"
+            defaultValue="Text"
             value={text}
             onChange={handleText}
           />
