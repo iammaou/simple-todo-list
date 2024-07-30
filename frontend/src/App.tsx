@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="m-0 h-screen bg-gradient-to-bl from-gradient-start to-gradient-end">
+    <div className="m-0 w-full min-h-screen bg-local bg-gradient-to-bl from-gradient-start to-gradient-end">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ListTodoComponent />}></Route>

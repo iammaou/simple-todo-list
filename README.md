@@ -1,5 +1,7 @@
 # Simple Todo List
 
+![Website](./docs/website.png)
+
 ## Base Tech Stack:
 
 - Spring Boot Backend

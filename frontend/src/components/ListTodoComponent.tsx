@@ -53,11 +53,11 @@ const ListTodoComponent = () => {
   }
 
   return (
-    <div className="pt-20 w-full font-candara">
-      <table className="m-auto w-2/3 text-center bg-white rounded-lg">
+    <div className="xl:pt-20 pt-7 md:pt-12 w-full font-candara">
+      <table className="m-auto xl:w-2/3 w-10/12 text-center bg-white rounded-lg">
         <thead>
           <tr>
-            <th className="py-2 text-4xl">To-Do:</th>
+            <th className="py-2 xl:text-4xl text-2xl">To-Do:</th>
           </tr>
           <tr>
             <th className="h-0.5 w-11/12 m-auto bg-slate-300"></th>
@@ -66,28 +66,32 @@ const ListTodoComponent = () => {
         <tbody>
           {todo.map((data) => (
             <tr key={data.id}>
-              <td className="text-xl py-1 inline-flex w-full">
-                <p className="m-auto pl-28">{data.text}</p>{" "}
-                <button
-                  className="pr-1 float-right w-[4%]"
-                  onClick={() => updateTodoComponent(data.id)}
-                >
-                  edit
-                </button>{" "}
-                <button
-                  className="pr-1 w-[6%]"
-                  onClick={() => deleteTodoComponent(data.id)}
-                >
-                  delete
-                </button>
+              <td className="text-xl py-4 grid grid-cols-12 w-full">
+                <p className="m-auto xl:pl-28 col-span-9 sm:col-span-10 lg:col-span-11 break-all px-4">
+                  {data.text}
+                </p>{" "}
+                <div className="grid col-span-3 sm:col-span-2 lg:col-span-1 gap-2 pr-2">
+                  <button
+                    className="w-full hover:bg-black hover:text-white rounded-lg p-2"
+                    onClick={() => updateTodoComponent(data.id)}
+                  >
+                    edit
+                  </button>{" "}
+                  <button
+                    className="w-full hover:bg-black hover:text-white rounded-lg p-2"
+                    onClick={() => deleteTodoComponent(data.id)}
+                  >
+                    delete
+                  </button>
+                </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="m-auto w-2/12">
+      <div className="m-auto w-1/3 pt-5">
         <button
-          className="text-3xl bg-white m-auto text-center w-full mt-5 rounded-lg"
+          className="xl:text-3xl h-[40px] text-xl bg-white m-auto text-center w-full xl:mt-5 rounded-lg hover:bg-black hover:text-white pb-5"
           onClick={addNewTodoComponent}
         >
           +

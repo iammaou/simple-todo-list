@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const TodoComponent = () => {
   // hook for the text which is sent to the backed
-  const [text, setText] = useState();
+  const [text, setText] = useState(String);
   // used when updating a member
   const { id } = useParams();
   // for checking if the field is filled
@@ -36,8 +36,7 @@ const TodoComponent = () => {
       if (id) {
         // checks if an id is provided, if it is we update the member
         updateMember(id, todo)
-          .then((Response) => {
-            console.log(Response.data);
+          .then(() => {
             navigator("/");
           })
           .catch((errors) => {
@@ -62,7 +61,7 @@ const TodoComponent = () => {
 
     const errorsCopy = { ...errors };
 
-    if (text == undefined) {
+    if (text == undefined || text == "") {
       errorsCopy.text = "This field is required";
       valid = false;
     } else {
@@ -83,8 +82,8 @@ const TodoComponent = () => {
   }
 
   return (
-    <div className="text-3xl w-full pt-20">
-      <div className="bg-white m-auto w-2/6 rounded-lg">
+    <div className="sm:text-3xl w-full xl:pt-20 pt-7 sm:pt-12">
+      <div className="bg-white m-auto w-11/12 xl:w-1/3 sm:w-10/12 rounded-lg">
         {title()}
         <div className="h-0.5 w-11/12 m-auto bg-slate-300"></div>
         <div className="px-4">
@@ -94,12 +93,12 @@ const TodoComponent = () => {
             placeholder="Text"
             value={text}
             onChange={handleText}
-          ></input>
-          {<h5 className="text-red-600 text-xl">{errors.text}</h5>}
+          />
+          {<h5 className="text-red-600 sm:text-xl">{errors.text}</h5>}
         </div>
-        <div className="py-2 m-auto w-1/6 text-center">
+        <div className="py-2 xl:pt-7 m-auto w-1/6 text-center pt-2">
           <button
-            className="text-2xl p-2 border-black border-2 border-solid rounded-lg"
+            className="sm:text-2xl text-sm p-1 border-black border-2 border-solid rounded-lg hover:bg-black hover:text-white"
             onClick={saveOrUpdateTodo}
           >
             Submit
